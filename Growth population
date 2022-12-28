@@ -1,15 +1,18 @@
 pop = [50, 1450, 1400, 1700, 1500, 600, 1200]
-tot_pop = 0
-years = 0
-growth_rate = 2.5
-i = 0
-while i < len(pop):
-    tot_pop += pop[i]
-    new_pop = pop[i] * (1 + growth_rate / 100)
-    pop[i] = new_pop
-    growth_rate -= 0.1
-    i += 1
-    years += 1
-print("Current total population is:", tot_pop ,"million")
-print("Years until max population is:", years)
-print("Max population is:", tot_pop ,"million")
+cur_tot_pop = 0
+for popu in pop:
+  cur_tot_pop += popu
+print("Current total population is: " ,cur_tot_pop, "Million")
+max_pop_year = 0
+max_pop = 0
+grow_rate = 0.025
+year = 0
+for popul in pop:
+  if cur_tot_pop > max_pop:
+    max_pop = cur_tot_pop
+    max_pop_year = year
+  cur_tot_pop += popul * (1 + grow_rate)
+  grow_rate -= 0.001
+  year += 1
+print("Years in which max population will be reached are: ", max_pop_year , "Years")
+print("Value of maximum population is: ", max_pop ,"Million")
