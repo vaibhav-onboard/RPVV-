@@ -1,0 +1,15 @@
+pop = [50, 1450, 1400, 1700, 1500, 600, 1200]
+total_pop = 0
+year = 0
+growth_rate = 2.5
+i = 0
+while i < len(pop):
+    total_pop += pop[i]
+    new_pop = pop[i] * (1 + growth_rate / 100)
+    pop[i] = new_pop
+    growth_rate -= 0.1
+    i += 1
+    year += 1
+print("Current total population is:", total_pop ,"million")
+print("Years until maximum population is:", years)
+print("Maximum population is:", total_pop ,"million")
