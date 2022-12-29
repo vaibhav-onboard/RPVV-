@@ -1,0 +1,250 @@
+Names=[]
+
+Salary=[]
+
+BestPerformers=[]
+
+PromotionCandidates=[]
+
+RedList=[]
+
+emp_dict={'empname' :Names, 'salary' :Salary}
+
+choice=1
+
+while choice!=0:
+
+         print("1. Add employee detail ")
+
+         print("2. Show all employee details ")
+
+         print("3. Search for an employee ")
+
+         print("4. Delete an employee ")
+
+         print("5. Edit an employee's salary ")
+
+         print("6. Move an employee to the best performers list ")
+
+         print("7. Move an employee to the promotion candidates list ")
+
+         print("8. Move an employee to the red list ")
+
+         print("9. Show all best performers ")
+
+         print("10. Show all promotion candidates ")
+
+         print("11. Show all employees on the red list ")
+
+         print("0. Quit ")
+
+         choice = int(input("Enter your choice "))
+
+         if choice==1:
+
+                   name = input("Enter name ")
+
+                   salary = int(input("Enter salary "))
+
+                   Names.append(name)
+
+                   Salary.append(salary)
+
+         elif choice==2:
+
+                  print("*********** EMPLOYEE DETAILS ************")
+
+                  print("%20s"%"NAME","%10s"%"SALARY")
+
+                  print("------------------------------------------")
+
+                  n = emp_dict['empname']
+
+                  s = emp_dict['salary']
+
+                  for i in range(len(n)):
+
+                            print("%20s"%n[i],"%10s"%s[i])
+
+                  print("---------------------------------------------")
+
+         elif choice==3:
+
+                  print("Enter name to search :")
+
+                  name = input("Enter name")
+
+                  n = emp_dict['empname']
+
+                  s= emp_dict['salary']
+
+                  try:
+
+                           pos = n.index(name)
+
+                           print("## Record found ##")
+
+                           print("Salary :",s[pos])
+
+                  except:
+
+                           print("Name not found in the record")
+
+         elif choice==4:
+
+                  print("Enter name of employee to delete: ")
+
+                  name = input("Enter name")
+
+                  n = emp_dict['empname']
+
+                  s= emp_dict['salary']
+
+                  try:
+
+                           pos = n.index(name)
+
+                           del n[pos]
+
+                           del s[pos]
+
+                           print("Employee deleted successfully")
+
+                  except:
+
+                           print("Name not found in the record")
+
+         elif choice==5:
+
+                  print("Enter name of employee to edit salary: ")
+
+                  name = input("Enter name")
+
+                  n = emp_dict['empname']
+
+                  s= emp_dict['salary']
+
+                  try:
+
+                           pos = n.index(name)
+
+                           salary = int(input("Enter new salary: "))
+
+                           s[pos] = salary
+
+                           print("Employee salary updated successfully")
+
+                  except:
+
+                           print("Name not found in the record")
+
+         elif choice==6:
+
+                  print("Enter name of employee to move to best performers list: ")
+
+                  name = input("Enter name")
+
+                  n = emp_dict['empname']
+
+                  s= emp_dict['salary']
+
+                  try:
+
+                           pos = n.index(name)
+
+                           BestPerformers.append(name)
+
+                           print("Employee moved to best performers list successfully")
+
+                  except:
+
+                           print("Name not found in the record")
+
+         elif choice==7:
+
+                  print("Enter name of employee to move to promotion candidates list: ")
+
+                  name = input("Enter name")
+
+                  n = emp_dict['empname']
+
+                  s= emp_dict['salary']
+
+                  try:
+
+                           pos = n.index(name)
+
+                           PromotionCandidates.append(name)
+
+                           print("Employee moved to promotion candidates list successfully")
+
+                  except:
+
+                           print("Name not found in the record")
+
+         elif choice==8:
+
+                  print("Enter name of employee to move to red list: ")
+
+                  name = input("Enter name")
+
+                  n = emp_dict['empname']
+
+                  s= emp_dict['salary']
+
+                  try:
+
+                           pos = n.index(name)
+
+                           RedList.append(name)
+
+                           print("Employee moved to red list successfully")
+
+                  except:
+
+                           print("Name not found in the record")
+
+         elif choice==9:
+
+                  print("*********** BEST PERFORMERS ************")
+
+                  print("%20s"%"NAME")
+
+                  print("------------------------------------------")
+
+                  for performer in BestPerformers:
+
+                            print("%20s"%performer)
+
+                  print("---------------------------------------------")
+
+         elif choice==10:
+
+                  print("*********** PROMOTION CANDIDATES ************")
+
+                  print("%20s"%"NAME")
+
+                  print("------------------------------------------")
+
+                  for candidate in PromotionCandidates:
+
+                            print("%20s"%candidate)
+
+                  print("---------------------------------------------")
+
+         elif choice==11:
+
+                  print("*********** RED LIST ************")
+
+                  print("%20s"%"NAME")
+
+                  print("------------------------------------------")
+
+                  for employee in RedList:
+
+                            print("%20s"%employee)
+
+                  print("---------------------------------------------")
+
+               
+
