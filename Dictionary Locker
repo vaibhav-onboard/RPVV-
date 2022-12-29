@@ -1,0 +1,35 @@
+import json
+try:
+    with open("data.json", "r") as f:
+        data, password = json.loads(f.read())
+except FileNotFoundError:
+    data = {}
+    password = None
+while True:
+    print("1. Add data")
+    print("2. Retrieve data")
+    print("3. Exit")
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        while True:
+            # Get the key and value for the data
+            key = input("Enter the key for the data: ")
+            value = input("Enter the value for the data: ")
+            data[key] = value
+            more = input("Add more data? (y/n) ")
+            if more.lower() != "y":
+                break
+        password = input("Enter a password to lock the data: ")
+        with open("data.json", "w") as f:
+            f.write(json.dumps((data, password)))
+        print("Data saved and locked with password.")
+    elif choice == "2":
+        input_password = input("Enter the password to unlock the data: ")
+        if input_password == password:
+            print("Data:", data)
+        else:
+            print("Incorrect password.")
+    elif choice == "3":
+        break
+    else:
+        print("Invalid choice.")
