@@ -1,0 +1,15 @@
+max_size = int(input("Enter the maximum size of the list: "))
+nums = []
+for i in range(max_size):
+    num = input("Enter a number: ")
+    nums.append(num)
+search_element = input("Enter the element to search: ")
+found = False
+for num in nums:
+    if num == search_element:
+        found = True
+        break
+if found:
+    print("Element found in the list")
+else:
+    print("Element not found in the list")
