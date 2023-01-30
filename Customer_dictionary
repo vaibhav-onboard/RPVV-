@@ -1,0 +1,63 @@
+records = {}
+
+print("Welcome to the Phone Book Shop!")
+
+while True:
+    print("\nSelect Operation:")
+    print("1. Show Record")
+    print("2. Add New Customer")
+    print("3. Delete a Customer")
+    print("4. Search Record Based on Key")
+    print("5. Update Record")
+    print("0. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        print("\nShow Records")
+        if records:
+            for key, value in records.items():
+                print(key + ": " + value)
+        else:
+            print("No records found.")
+
+    elif choice == 2:
+        print("\nAdd New Customer")
+        name = input("Enter name: ")
+        phone = input("Enter phone number: ")
+        records[name] = phone
+        print("Record added successfully.")
+
+    elif choice == 3:
+        print("\nDelete a Customer")
+        name = input("Enter name: ")
+        if name in records:
+            del records[name]
+            print("Record deleted successfully.")
+        else:
+            print("Record not found.")
+
+    elif choice == 4:
+        print("\nSearch Record Based on Key")
+        name = input("Enter name: ")
+        if name in records:
+            print(name + ": " + records[name])
+        else:
+            print("Record not found.")
+
+    elif choice == 5:
+        print("\nUpdate Record")
+        name = input("Enter name: ")
+        if name in records:
+            phone = input("Enter new phone number: ")
+            records[name] = phone
+            print("Record updated successfully.")
+        else:
+            print("Record not found.")
+
+    elif choice == 0:
+        print("Thank you for using Phone Book Shop! Goodbye.")
+        break
+
+    else:
+        print("Invalid choice, try again.")
