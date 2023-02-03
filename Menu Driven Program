@@ -1,0 +1,58 @@
+string = input("Enter a string: ")
+while True:
+    print("1. Display the number of alphabets")
+    print("2. Display the number of digits")
+    print("3. Display the number of lowercase characters")
+    print("4. Display the number of uppercase characters")
+    print("5. Display the number of special characters")
+    print("6. Display the number of total words")
+    print("7. Display the first letter of each word changed into capital by removing spaces")
+    print("0. Quit")
+    choice = int(input("Enter your choice: "))
+    if choice == 1:
+        alphabets = 0
+        for char in string:
+            if char.isalpha():
+                alphabets += 1
+        print("No of Alphabets:", alphabets)
+    elif choice == 2:
+        digits = 0
+        for char in string:
+            if char.isdigit():
+                digits += 1
+        print("No of Digits:", digits)
+    elif choice == 3:
+        lower_case = 0
+        for char in string:
+            if char.islower():
+                lower_case += 1
+        print("No of Lower Case Characters:", lower_case)
+    elif choice == 4:
+        upper_case = 0
+        for char in string:
+            if char.isupper():
+                upper_case += 1
+        print("No of Upper Case Characters:", upper_case)
+    elif choice == 5:
+        special_characters = 0
+        for char in string:
+            if not char.isalnum():
+                special_characters += 1
+        print("No of Special Characters:", special_characters)
+    elif choice == 6:
+        words = string.split()
+        print("No of Total Words:", len(words))
+    elif choice ==7:
+        new_string = " ".join([word.capitalize() for word in string.split()])
+        result = ""
+        for i in range(len(new_string)):
+            if i >= len(string):
+               break
+            if new_string[].isupper() and new_string[i] != string[i]:
+               result += new_string[i]
+        print(result)
+    elif choice == 0:
+        break
+    else:
+        print("Invalid choice, please try again..")
+        
