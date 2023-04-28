@@ -1,0 +1,9 @@
+def count_ME_MY():
+    with open('poem.txt', 'r') as file:
+        content = file.read()
+        content = content.lower()
+        me_count = content.count('me') + content.count('mE') + content.count('Me') + content.count('ME')
+        my_count = content.count('my') + content.count('mY') + content.count('My') + content.count('MY')
+        print('Total ME,me,mE,Me =', me_count)
+        print('Total MY,my,mY,My =', my_count)
+count_ME_MY()
